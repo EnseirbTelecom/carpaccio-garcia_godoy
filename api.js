@@ -6,6 +6,7 @@ const port = 8800;
 const app = express();
 const id = {id: "it340-Garcia_Godoy"};
 
+/*
 // Connection à la base de données
 mongoose.connect('mongodb://localhost:27017', {
     useNewUrlParser: true,
@@ -20,7 +21,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
 });
-
+*/
 // Lecture des corps de requête en json 
 app.use(bodyParser.json());
 
