@@ -2,9 +2,11 @@ const express = require('express')
 
 const bodyParser = require('body-parser');
 
+const Bill = require("./calculPrix.js");
+
 const port = 8800;
 const app = express();
-const id = {id: "it340-Garcia_Godoy"};
+const id = { id: "it340-Garcia_Godoy" };
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -16,27 +18,24 @@ app.use((req, res, next) => {
 // Lecture des corps de requête en json 
 app.use(bodyParser.json());
 
-app.get('/id', function(req, res){
+app.get('/id', function (req, res) {
     res.status(200).json(id);
 })
 
-app.post('/bill', function(req, res) {
-    let prices = req.body.prices;
-    let quantities = req.body.quantities;
-    if( prices.length != quantities.length ){
-        return res.status(400).json({error: "Prices and quantities don't have the same number of elements."})
-    } else {
-        const numberOfElements = prices.length;
-        let result = 0;
-        for(i=0;i<numberOfElements;i++){
-            result = result + prices[i] * quantities[i];
-        }
-        if( result == 0 ){
-            return res.status(400).json({ error: 'Failed to compute total' });
-        } else {
-            res.status(200).json({ total: result });
-        }
-    }
+app.post('/bill', function (req, res) {
+    let bill = new Bill();
+    bill.constructor(req.body.prices, req.body.quantities).then
+        (() => {
+            let total = bill.total();
+            if (total == -1) {
+                return res.status(400).json({ error: "Prices and quantities don't have the same number of elements." })
+            } else if (total == 0) {
+                return res.status(400).json({ error: 'Failed to compute total' });
+            } else {
+                res.status(200).json({ total: result });
+            }
+        }).catch(()=> res.status(400).json({error: "Cannot build Bill"}));
+
 })
 
-app.listen(port, ()=> {console.log('Server listening on port '+ port);});
+app.listen(port, () => { console.log('Server listening on port ' + port); });
