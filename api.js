@@ -25,7 +25,26 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.get('/id', function(req, res){
-    res.json(id);
+    res.status(200).json(id);
+})
+
+app.post('/bill', function(req, res) {
+    let prices = req.body.prices;
+    let quantities = req.body.quantities;
+    if( prices.length != quantities.length ){
+        return res.status(400).json({error: "Prices and quantities don't have the same number of elements."})
+    } else {
+        const numberOfElements = prices.length;
+        let result = 0;
+        for(i=0;i<numberOfElements;i++){
+            result = result + prices[i] * quantities[i];
+        }
+        if( result == 0 ){
+            return res.status(400).json({ error: 'Failed to compute total' });
+        } else {
+            res.status(200).json({ total: result });
+        }
+    }
 })
 
 app.listen(port, ()=> {console.log('Server listening on port '+ port);});

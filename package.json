@@ -1,0 +1,19 @@
+{
+  "name": "carpaccio-garcia_godoy",
+  "version": "1.0.0",
+  "description": "\"IT-340 project\"",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnseirbTelecom/carpaccio-garcia_godoy.git"
+  },
+  "author": "\"Marc-Antoine GARCIA & Océane GODOY\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EnseirbTelecom/carpaccio-garcia_godoy/issues"
+  },
+  "homepage": "https://github.com/EnseirbTelecom/carpaccio-garcia_godoy#readme"
+}
