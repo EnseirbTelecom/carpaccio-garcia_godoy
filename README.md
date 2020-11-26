@@ -14,6 +14,14 @@ Pour l'installation et la mise en fonctionnement de l'application il est nécess
 - Npm
 - Express
 
+### Start API
+
+Pour déployer le serveur, il faut installer les dependencies à l'aide de :
+- npm install
+
+Puis pour lancer le serveur, utiliser:
+- npm start
+
 ## Auteurs
 
 **Team Garcia_Godoy:**
