@@ -2,7 +2,7 @@ const express = require('express')
 
 const bodyParser = require('body-parser')
 
-const Bill = require('./bill.js')
+const Bill = require('../middleware/bill.js')
 
 const port = 8800
 const app = express()

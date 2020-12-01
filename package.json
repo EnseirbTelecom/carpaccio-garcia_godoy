@@ -4,7 +4,7 @@
   "description": "\"IT-340 project\"",
   "main": "api.js",
   "scripts": {
-    "start": "nodemon api.js",
+    "start": "nodemon ./server/api.js",
     "test": "standard --env jest && jest --coverage"
   },
   "repository": {
