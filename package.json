@@ -5,7 +5,7 @@
   "main": "api.js",
   "scripts": {
     "start": "nodemon api.js",
-    "test": "jest --coverage"
+    "test": "standard --env jest && jest --coverage"
   },
   "repository": {
     "type": "git",
