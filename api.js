@@ -23,18 +23,15 @@ app.get('/id', function (req, res) {
 })
 
 app.post('/bill', function (req, res) {
-    let bill = new Bill();
-    bill.constructor(req.body.prices, req.body.quantities).then
-        (() => {
-            let total = bill.total();
-            if (total == -1) {
-                return res.status(400).json({ error: "Prices and quantities don't have the same number of elements." })
-            } else if (total == 0) {
-                return res.status(400).json({ error: 'Failed to compute total' });
-            } else {
-                res.status(200).json({ total: result });
-            }
-        }).catch(()=> res.status(400).json({error: "Cannot build Bill"}));
+    let bill = new Bill(req.body.prices, req.body.quantities);
+    let total = bill.total();
+    if (total == -1) {
+        return res.status(400).json({ error: "Prices and quantities don't have the same number of elements." })
+    } else if (total == 0) {
+        return res.status(400).json({ error: 'Failed to compute total' });
+    } else {
+        res.status(200).json({ bill: total });
+    }
 
 })
 
