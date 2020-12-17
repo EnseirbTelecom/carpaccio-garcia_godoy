@@ -1,10 +1,8 @@
 module.exports = class Bill {
-  
   static calcBill (prices, quantities) {
     if (!this.isSameLength(prices, quantities)) {
       throw new Error('Lists are not the same length')
-    } 
-    else if(this.hasNegativeValue(prices) || this.hasNegativeValue(quantities)){
+    } else if (this.hasNegativeValue(prices) || this.hasNegativeValue(quantities)) {
       throw new Error('Lists contain negative values')
     } else {
       const numberOfElements = prices.length
@@ -16,18 +14,19 @@ module.exports = class Bill {
     }
   }
 
-  static isSameLength(tab1, tab2) {
+  static isSameLength (tab1, tab2) {
     return tab1.length === tab2.length
   }
-  static hasNegativeValue(tab) {
+
+  static hasNegativeValue (tab) {
     let result = false
     let index = 0
-    while(!result && index <= tab.length) {
-        if(tab[index] < 0){
-          result = true;
-        } else {
-          index++
-        }
+    while (!result && index <= tab.length) {
+      if (tab[index] < 0) {
+        result = true
+      } else {
+        index++
+      }
     }
     return result
   }
