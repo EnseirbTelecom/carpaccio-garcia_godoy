@@ -2,7 +2,7 @@ const express = require('express')
 
 const bodyParser = require('body-parser')
 
-const Bill = require('./bill.js')
+const Bill = require('./modules/bill.js')
 
 const port = 8800
 const app = express()
@@ -34,3 +34,5 @@ app.post('/bill', function (req, res) {
 })
 
 app.listen(port, () => { console.log('Server listening on port ' + port) })
+
+module.exports = app
