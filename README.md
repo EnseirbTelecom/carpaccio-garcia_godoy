@@ -19,6 +19,9 @@ Pour l'installation et la mise en fonctionnement de l'application il est nécess
 Pour déployer le serveur, il faut installer les dependencies à l'aide de :
 - npm install
 
+Pour exécuter les test:
+- npm test
+
 Puis pour lancer le serveur, utiliser:
 - npm start
 
