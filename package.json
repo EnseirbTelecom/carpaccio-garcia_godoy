@@ -5,7 +5,8 @@
   "main": "api.js",
   "scripts": {
     "start": "nodemon api.js",
-    "test": "standard --env jest && jest --coverage"
+    "test": "standard --env jest && jest --coverage",
+    "lint": "npx eslint *.js ./modules/*.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,11 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "jest": "^26.6.3",
     "standard": "^16.0.3",
     "supertest": "^6.0.1"
