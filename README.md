@@ -17,7 +17,7 @@ Pour l'installation et la mise en fonctionnement de l'application il est nécess
 ### Start API
 
 Pour déployer le serveur, il faut installer les dependencies à l'aide de :
-- npm install
+- `npm install`
 
 Pour exécuter les test:
 - npm test
