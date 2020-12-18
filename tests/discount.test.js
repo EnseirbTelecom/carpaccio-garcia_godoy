@@ -46,6 +46,9 @@ test('Price 100 and progressive discount expected to be 100', () => {
 })
 
 /** ****************** FIXED DISCOUNT ********************/
+test('Price 10 and fixed discount expected to be 10', () => {
+  expect(Discount.caclDiscountedPrice(10, 'FIXED_DISCOUNT')).toBe(10)
+})
 test('Price 100 and fixed discount expected to be 90', () => {
   expect(Discount.caclDiscountedPrice(100, 'FIXED_DISCOUNT')).toBe(90)
 })
@@ -60,4 +63,9 @@ test('Price 1 000 and fixed discount expected to be 800', () => {
 })
 test('Price 5 000 and fixed discount expected to be 4 800', () => {
   expect(Discount.caclDiscountedPrice(5000, 'FIXED_DISCOUNT')).toBe(4800)
+})
+
+/** ****************** INVALID ********************/
+test('Price 10 and invalid discount FULL_DISCOUNT', () => {
+  expect(() => { Discount.caclDiscountedPrice(10, 'FULL_DISCOUNT') }).toThrow(new Error('Discount type is not valid'))
 })

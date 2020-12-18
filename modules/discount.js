@@ -13,7 +13,7 @@ module.exports = class Discount {
         return price - fixedDiscount
 
       default :
-        console.log('No discount found')
+        throw new Error('Discount type is not valid')
     }
   }
 
