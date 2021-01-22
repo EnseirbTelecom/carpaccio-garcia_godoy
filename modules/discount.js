@@ -1,6 +1,8 @@
 module.exports = class Discount {
   static caclDiscountedPrice (price, discount) {
     switch (discount) {
+      case undefined:
+        return price
       case 'NO_DISCOUNT':
         return price
       case 'PROGRESSIVE_DISCOUNT':
@@ -11,9 +13,8 @@ module.exports = class Discount {
       case 'FIXED_DISCOUNT':
         var fixedDiscount = this.fixed(price)
         return price - fixedDiscount
-
       default :
-        console.log('No discount found')
+        throw new Error('Unknown discount')
     }
   }
 
