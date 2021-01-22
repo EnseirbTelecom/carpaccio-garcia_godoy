@@ -1,6 +1,11 @@
 const Discount = require('../modules/discount')
 
-/** ****************** NO DISCOUNT ****************** **/
+/** ****************** WRONG OR NO DISCOUNT ********************/
+test('No discount entered', () => {
+  expect(() => { Discount.caclDiscountedPrice(10, '') }).toThrowError(new Error('Unknown discount'))
+})
+
+/** ****************** NO DISCOUNT ********************/
 test('Price 10 and no discount expected to be 10', () => {
   expect(Discount.caclDiscountedPrice(10, 'NO_DISCOUNT')).toBe(10)
 })
@@ -46,6 +51,9 @@ test('Price 100 and progressive discount expected to be 100', () => {
 })
 
 /** ****************** FIXED DISCOUNT ********************/
+test('Price 50 and fixed discount expected to be 50', () => {
+  expect(Discount.caclDiscountedPrice(50, 'FIXED_DISCOUNT')).toBe(50)
+})
 test('Price 100 and fixed discount expected to be 90', () => {
   expect(Discount.caclDiscountedPrice(100, 'FIXED_DISCOUNT')).toBe(90)
 })
