@@ -29,7 +29,7 @@ const tax = {
   MT: '20'
 }
 
-const Discount = require('./discount.js');
+const Discount = require('./discount.js')
 
 module.exports = class Bill {
   static calcBill (prices, quantities, country, discount) {

@@ -2,7 +2,7 @@ module.exports = class Discount {
   static caclDiscountedPrice (price, discount) {
     switch (discount) {
       case undefined:
-          return price
+        return price
       case 'NO_DISCOUNT':
         return price
       case 'PROGRESSIVE_DISCOUNT':
