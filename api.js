@@ -25,7 +25,7 @@ app.get('/id', function (req, res) {
 app.post('/bill', function (req, res) {
   let total
   try {
-    total = Bill.calcBill(req.body.prices, req.body.quantities)
+    total = Bill.calcBill(req.body.prices, req.body.quantities, req.body.country)
   } catch (error) {
     console.error(error)
     res.status(401).json(error)
