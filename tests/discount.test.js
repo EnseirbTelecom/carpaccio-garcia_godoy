@@ -2,7 +2,10 @@ const Discount = require('../modules/discount')
 
 /** ****************** WRONG OR NO DISCOUNT ********************/
 test('No discount entered', () => {
-  expect(() => { Discount.caclDiscountedPrice(10, '') }).toThrowError(new Error('Unknown discount'))
+  expect(() => { Discount.caclDiscountedPrice(10, 'blabla') }).toThrowError(new Error('Unknown discount'))
+})
+test('No discount specified', () => {
+  expect(Discount.caclDiscountedPrice(10)).toBe(10)
 })
 
 /** ****************** NO DISCOUNT ********************/
