@@ -30,9 +30,10 @@ const tax = {
 }
 
 const Discount = require('./discount.js')
+const Currency = require('./currency')
 
 module.exports = class Bill {
-  static calcBill (prices, quantities, country, discount) {
+  static calcBill (prices, quantities, country, discount, currency) {
     if (!this.isSameLength(prices, quantities)) {
       throw new Error('Lists are not the same length')
     } else if (this.hasNegativeValue(prices) || this.hasNegativeValue(quantities)) {
@@ -46,6 +47,7 @@ module.exports = class Bill {
         result = result + prices[i] * quantities[i]
       }
       result = Discount.caclDiscountedPrice(result * (tax[country] / 100 + 1), discount)
+      result = Currency.calcCurrencyPrice(result, currency)
       return result
     }
   }
